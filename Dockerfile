@@ -7,6 +7,7 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
 WORKDIR /var/www/html
 COPY index.html pedido.php ./
 COPY assets/ ./assets/
+RUN chmod -R u=rwX,go=rX /var/www/html
 
 EXPOSE 80
 CMD ["apache2-foreground"]
